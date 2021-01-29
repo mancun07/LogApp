@@ -35,7 +35,11 @@ export const addLog = (newLog) => async dispatch => {
         const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/logs', {
             method: 'POST',
             body: JSON.stringify(newLog),
-            headers: {'Content-Type': 'application/json'}
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                Accept: 'application/json;odata.metadata=full',
+                'Content-Type': 'application/json'
+            }
         })
 
         const data = await res.json();
