@@ -1,27 +1,32 @@
-import React, {useEffect} from 'react'
-import LogItem from './LogItem'
-import Preloader from './Preloader'
+import React, {useEffect} from 'react';
+import LogItem from './LogItem';
 import 'materialize-css/dist/css/materialize.min.css';
 import { connect } from 'react-redux';
-import { getLogs, setLoading } from '../actions/LogActions'
+import { getLogs, setLoading } from '../actions/LogActions';
+import Preloader from './Preloader';
 
-const LogsList = ({logs, getLogs, loading, setLoading}) => {
+const LogsList = ({logs, getLogs, loading}) => {
 
     useEffect(() => {
         getLogs()
         // eslint-disable-next-line
     }, [])
-
-    if (loading) return <Preloader/>
    
+    if (loading || logs === null) {
+        return <Preloader />;
+      }
  
     return (
         <div>
-            <ul class="collection with-header">
-                <li class="collection-header"><h4>Total Logs</h4></li>
-                {!loading && logs && logs.map(log => {
-                    return <LogItem key={log.id} log={log}/>
-                })}     
+            <ul className="collection with-header">
+                <li className="collection-header center-align"><h4>Выполненные задачи</h4></li>
+                {!loading && logs.length === 0 ? (
+                    <p>На текущий момент нет поставленных задач...</p>
+                ) : (logs.map(log => {
+                        return <LogItem key={log.id} log={log}/>
+                    }))
+                 } 
+        
             </ul>
         </div>
 

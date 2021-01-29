@@ -1,52 +1,61 @@
 {
   "logs": [
     {
-      "message": "One more New Just a test1 (yes, Dima!)",
-      "tech": "John Dow",
-      "attention": true,
+      "message": "Закончена верстка Landing-Page",
+      "tech": "Дмитрий Иванов",
+      "attention": false,
+      "date": "2021-01-29T14:01:22.064Z",
       "id": 1
     },
     {
-      "message": "Just a test22222",
-      "tech": "Jane Smith",
+      "message": "Назначена встреча с ключевыми клиентами на среду",
+      "tech": "Сергей Петров",
       "attention": false,
-      "date": "2021-01-05T14:07:55.457Z",
+      "date": "2021-01-29T14:35:31.758Z",
       "id": 2
     },
     {
-      "message": "333 Just a test333",
-      "tech": "Carol Du",
-      "attention": true,
+      "message": "Начат новый React-проект для клиента A.",
+      "tech": "Василий Уткин",
+      "attention": false,
+      "date": "2021-01-29T14:04:19.603Z",
       "id": 3
     },
     {
-      "message": "dgfgfgfgfg",
-      "tech": "Sam Smith",
+      "message": "Проект для клиента B. залит на Github ",
+      "tech": "",
       "attention": true,
-      "id": 6
+      "date": "2021-01-29T14:05:12.538Z",
+      "id": 4
     },
     {
-      "message": "ddfg",
-      "tech": "",
-      "attention": false,
-      "id": 7
+      "message": "Подготовлены макеты страницы сайта для клиента C.",
+      "tech": "Алексей Кузнецов",
+      "attention": true,
+      "date": "2021-01-29T14:05:56.066Z",
+      "id": 5
     }
   ],
   "techs": [
     {
-      "firstName": "Sara",
-      "lastName": "Wilson",
-      "id": 1
+      "firstName": "Дмитрий",
+      "lastName": "Иванов",
+      "id": 4
     },
     {
-      "firstName": "Sam",
-      "lastName": "Smith",
-      "id": 2
+      "firstName": "Сергей",
+      "lastName": "Петров",
+      "id": 5
     },
     {
-      "firstName": "John",
-      "lastName": "Dow",
-      "id": 3
+      "firstName": "Василий",
+      "lastName": "Уткин",
+      "id": 7
+    },
+    {
+      "firstName": "Алексей",
+      "lastName": "Кузнецов",
+      "id": 8
     }
   ]
 }

@@ -1,7 +1,7 @@
 
 export const getTechs = () => async dispatch => {
     try {
-        const res = await fetch('http://localhost:5000/techs');
+        const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/techs');
         if (!res.ok) {
             throw Error ('Данные не доступны')
         }
@@ -18,7 +18,7 @@ export const getTechs = () => async dispatch => {
 
 export const addTech = (tech) => async dispatch => {
     try {
-        const res = await fetch('http://localhost:5000/techs', {
+        const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/techs', {
             method: 'POST',
             body: JSON.stringify(tech),
             headers: {'Content-Type': 'application/json'}
@@ -35,7 +35,7 @@ export const addTech = (tech) => async dispatch => {
 
 export const deleteTech = (id) => async dispatch => {
     try {
-        await fetch(`http://localhost:5000/techs/${id}`, {
+        await fetch(`https://my-json-server.typicode.com/mancun07/ReduxApp/techs/${id}`, {
             method: 'DELETE'       
         });
 

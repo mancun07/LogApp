@@ -1,7 +1,9 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
-import {addTech} from '../actions/TechActions'
-import { connect } from 'react-redux'
+import M from 'materialize-css/dist/js/materialize.min.js';
+import {addTech} from '../actions/TechActions';
+import { connect } from 'react-redux';
+
 
 const AddTechModal = ({addTech}) => {
 
@@ -10,26 +12,31 @@ const AddTechModal = ({addTech}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        addTech({firstName, lastName});
-        setFirstName('');
-        setLastName('');
+        if (firstName === '' || lastName === '') {
+            M.toast({ html: 'Первые два поля должны быть заполнены!'});
+        } else {
+            addTech({firstName, lastName});
+            setFirstName('');
+            setLastName('');
+            M.toast({ html: 'Сотрудник успешно добавлен!'});
+        }
     }
 
     return (
-        <div id="addTechModal" class="modal">
+        <div id="addTechModal" className="modal">
                 <form onSubmit={onSubmit}>
                     <div className="modal-content">
-                        <div class="input-field">
+                        <div className="input-field">
                             <input id="first_name" value={firstName} onChange={e => setFirstName(e.target.value.trim())} type="text" />
-                            <label for="first_name">First Name</label>
+                            <label htmlFor="first_name">Имя</label>
                         </div>
-                        <div class="input-field">
+                        <div className="input-field">
                             <input id="last_name" value={lastName} onChange={e => setLastName(e.target.value.trim())} type="text" />
-                            <label for="last_name">Last Name</label>
+                            <label htmlFor="last_name">Фамилия</label>
                         </div>
                     </div>
                         <div className="modal-footer">
-                            <input type="submit" value="Send" class="modal-close waves-effect waves-green btn-flat indigo white-text"/>
+                        <input type="submit" className="modal-close btn btn-flat green white-text" value="Добавить сотрудника"/>
                         </div>
                 </form> 
 

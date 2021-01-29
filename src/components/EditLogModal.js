@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
-import {updateLog, setCurrent} from '../actions/LogActions'
+import {updateLog, setCurrent} from '../actions/LogActions';
+import M from 'materialize-css/dist/js/materialize.min.js';
 
-const EditLogModal = ({current, updateLog, setCurrent}) => {
+const EditLogModal = ({current, updateLog, setCurrent, techs}) => {
     const [message, setMessage] = useState('')
     const [tech, setTech] = useState('')
     const [attention, setAttention] = useState(false)
@@ -18,46 +19,53 @@ const EditLogModal = ({current, updateLog, setCurrent}) => {
 
     const onSubmit = (e) => {
         e.preventDefault();
-        updateLog({
-            message, 
-            tech,
-            attention,
-            id: current.id
-        })
-        setMessage('');
-        setTech('');
-        setAttention(false);
+        if (message === '' || tech === '') {
+            M.toast({ html: 'Первые два поля должны быть заполнены! Попробуйте еще раз!'});
+        } else {
+            updateLog({
+                message, 
+                tech,
+                attention,
+                date: new Date(),
+                id: current.id
+            })
+            setMessage('');
+            setTech('');
+            setAttention(false);
+            M.toast({ html: 'Задача успешно обновлена!'});
+        }
+
     }
 
 
     return (
-    <div id="editModal" class="modal">
+    <div id="editModal" className="modal">
         <form onSubmit={onSubmit}>
-        <div class="modal-content">
-            <h4 className="center-align">Edit the log</h4>
-            <div class="input-field col s6">
-                <input id="log" type="text" value={message} class="validate" onChange={e => setMessage(e.target.value)}/>
+        <div className="modal-content">
+            <h4 className="center-align">Внести изменение</h4>
+            <div className="input-field col s6">
+                <input id="log" type="text" value={message} className="validate" onChange={e => setMessage(e.target.value)}/>
             </div>
 
             <select value={tech} onChange={e => setTech(e.target.value)}>
-                <option value="" disabled>Choose your option</option>
-                <option value="John Daw">John Daw</option>
-                <option value="Sam Smith">Sam Smith</option>
-                <option value="Sara Wilson">Sara Wilson</option>
+            <option value="" disabled>Выберите сотрудника</option>
+                {techs !== null && techs.map(t => {
+                     return <option key={t.id} >{t.firstName} {t.lastName}</option>
+                    })}
             </select>
 
             <p>
                 <label>
                     <input type="checkbox" checked={attention} onChange={e => setAttention(!attention)}/>
-                    <span>Needs Attention</span>
+                    <span>Требует проверки</span>
                 </label>
             </p>
 
         </div>
  
 
-        <div class="modal-footer">
-            <input type="submit" class="modal-close btn btn-flat green white-text" value="Send"/>
+        <div className="modal-footer">
+            <input type="submit" className="modal-close btn btn-flat green white-text" value="Обновить"/>
         </div>
         </form>
     </div>
@@ -66,7 +74,8 @@ const EditLogModal = ({current, updateLog, setCurrent}) => {
 
 const mapStateToProps = (state) => {
     return {
-        current: state.log.current
+        current: state.log.current,
+        techs: state.tech.techs
     }
 }
 

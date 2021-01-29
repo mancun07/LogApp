@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react'
-import {deleteTech, getTechs} from '../actions/TechActions'
-import { connect } from 'react-redux'
+import React, {useEffect} from 'react';
+import {deleteTech, getTechs} from '../actions/TechActions';
+import { connect } from 'react-redux';
 
 const TechListModal = ({getTechs, deleteTech, techs}) => {
 
@@ -10,14 +10,14 @@ const TechListModal = ({getTechs, deleteTech, techs}) => {
 
     return (
         <div id="techModal" className="modal">
-            <div class="modal-content">
-                <h4 className="center">List of technicians</h4>
-                <ul class="collection">
+            <div className="modal-content">
+                <h4 className="center">Сотрудники Отдела</h4>
+                <ul className="collection">
                     {techs && techs.map(tech => {
-                        return <li key={tech.id} class="collection-item">{tech.firstName}{' '}{tech.lastName}
-                        <a href="#!" class="secondary-content"
+                        return <li key={tech.id} className="collection-item">{tech.firstName}{' '}{tech.lastName}
+                        <a href="#!" className="secondary-content"
                         onClick={() => deleteTech(tech.id)}
-                        ><i class="material-icons">delete</i></a>
+                        ><i className="material-icons">delete</i></a>
                         </li>
                     })}
                 </ul>
