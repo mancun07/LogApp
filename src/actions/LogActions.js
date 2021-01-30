@@ -32,7 +32,7 @@ export const searchLogs = (text) => async dispatch => {
 export const addLog = (newLog) => async dispatch => {
     try {
         setLoading(true)
-        const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/db/logs', {
+        const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/logs', {
             method: 'POST',
             body: JSON.stringify(newLog),
             headers: {
