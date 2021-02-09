@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ReduxApp/static/css/main.2b6d2746.chunk.css",
-    "main.js": "/ReduxApp/static/js/main.ba14b0b2.chunk.js",
-    "main.js.map": "/ReduxApp/static/js/main.ba14b0b2.chunk.js.map",
+    "main.js": "/ReduxApp/static/js/main.1e3f96e7.chunk.js",
+    "main.js.map": "/ReduxApp/static/js/main.1e3f96e7.chunk.js.map",
     "runtime-main.js": "/ReduxApp/static/js/runtime-main.7257416c.js",
     "runtime-main.js.map": "/ReduxApp/static/js/runtime-main.7257416c.js.map",
     "static/css/2.0a49d93f.chunk.css": "/ReduxApp/static/css/2.0a49d93f.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.0a49d93f.chunk.css",
     "static/js/2.62aaf3d5.chunk.js",
     "static/css/main.2b6d2746.chunk.css",
-    "static/js/main.ba14b0b2.chunk.js"
+    "static/js/main.1e3f96e7.chunk.js"
   ]
 }
