@@ -2,7 +2,7 @@
 export const getLogs = () => async dispatch => {
     try {
         setLoading()
-        const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/logs');
+        const res = await fetch('/logs');
         const data = await res.json();
         console.log(data)
 
@@ -18,7 +18,7 @@ export const searchLogs = (text) => async dispatch => {
 
         try {
             setLoading(true)
-            const res = await fetch(`https://my-json-server.typicode.com/mancun07/ReduxApp/logs?q=${text}`)
+            const res = await fetch(`/logs?q=${text}`)
             const data = await res.json()
     
             dispatch({type: 'SEARCH_LOGS', payload: data})
@@ -32,7 +32,7 @@ export const searchLogs = (text) => async dispatch => {
 export const addLog = (newLog) => async dispatch => {
     try {
         setLoading(true)
-        const res = await fetch('https://my-json-server.typicode.com/mancun07/ReduxApp/logs', {
+        const res = await fetch('/logs', {
             method: 'POST',
             body: JSON.stringify(newLog),
             headers: {
@@ -55,7 +55,7 @@ export const addLog = (newLog) => async dispatch => {
 export const updateLog = (log) => async dispatch => {
     try {
         setLoading(true)
-        const res = await fetch(`https://my-json-server.typicode.com/mancun07/ReduxApp/logs/${log.id}`, {
+        const res = await fetch(`/logs/${log.id}`, {
             method: 'PUT',
             body: JSON.stringify(log),
             headers: {'Content-Type': 'application/json'}
@@ -74,7 +74,7 @@ export const updateLog = (log) => async dispatch => {
 export const deleteLog = (id) => async dispatch => {
     try {
         setLoading(true)
-        await fetch(`https://my-json-server.typicode.com/mancun07/ReduxApp/logs/${id}`, {
+        await fetch(`/logs/${id}`, {
             method: 'DELETE'
         })
 
